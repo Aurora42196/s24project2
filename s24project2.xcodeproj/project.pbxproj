@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C113D1532BD1DABC0016A8A4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C113D1522BD1DABC0016A8A4 /* main.cpp */; };
+		C113D1532BD1DABC0016A8A4 /* testSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C113D1522BD1DABC0016A8A4 /* testSet.cpp */; };
+		C113D15B2BD1E6FF0016A8A4 /* Set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C113D1592BD1E6FF0016A8A4 /* Set.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,9 @@
 
 /* Begin PBXFileReference section */
 		C113D14F2BD1DABC0016A8A4 /* s24project2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = s24project2; sourceTree = BUILT_PRODUCTS_DIR; };
-		C113D1522BD1DABC0016A8A4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C113D1522BD1DABC0016A8A4 /* testSet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testSet.cpp; sourceTree = "<group>"; };
+		C113D1592BD1E6FF0016A8A4 /* Set.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Set.cpp; sourceTree = "<group>"; };
+		C113D15A2BD1E6FF0016A8A4 /* Set.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Set.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +60,9 @@
 		C113D1512BD1DABC0016A8A4 /* s24project2 */ = {
 			isa = PBXGroup;
 			children = (
-				C113D1522BD1DABC0016A8A4 /* main.cpp */,
+				C113D1522BD1DABC0016A8A4 /* testSet.cpp */,
+				C113D1592BD1E6FF0016A8A4 /* Set.cpp */,
+				C113D15A2BD1E6FF0016A8A4 /* Set.h */,
 			);
 			path = s24project2;
 			sourceTree = "<group>";
@@ -119,7 +124,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C113D1532BD1DABC0016A8A4 /* main.cpp in Sources */,
+				C113D15B2BD1E6FF0016A8A4 /* Set.cpp in Sources */,
+				C113D1532BD1DABC0016A8A4 /* testSet.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

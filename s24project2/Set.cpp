@@ -7,3 +7,11 @@
 
 #include "Set.h"
 
+// Default constructor => create an empty Set
+Set::Set()
+ :m_size(0)
+{
+    
+}
+
+

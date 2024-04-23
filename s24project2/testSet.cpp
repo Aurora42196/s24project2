@@ -6,9 +6,17 @@
 //
 
 #include <iostream>
+#include <cassert>
+#include "Set.h"
+
+using namespace std;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+    // Test 1: To see if the default constructor and destructor allocate and dealllocate as intended
+    Set s;
+    assert(s.empty() == true);
+    assert(s.size() == 0);
+    
+    cout << "Passed all tests!" << endl;
+    
 }

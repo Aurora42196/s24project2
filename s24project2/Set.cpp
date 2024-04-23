@@ -31,8 +31,9 @@ int Set::size() const // Simply returns the size of the list
     return m_size;
 }
 
-bool Set::insert(const ItemType &value) // inserts a new value in the list in sorted order
+bool Set::insert(const ItemType& value) // inserts a new value in the list in sorted order
 {
+    // first check the list to see if the value already exists in the list
     if(contains(value) == true)
         return false;
     
@@ -59,6 +60,29 @@ bool Set::insert(const ItemType &value) // inserts a new value in the list in so
 
 bool Set::erase(const ItemType &value) // deletes the passed in value assuming it exists within the list
 {
+    // Checks to see if the list is empty or if the item exists in the list
+    if (empty() == true || contains(value) == false)
+        return false;
+    
+    // Iterate through the list and delete the node that matches the value
+    Node* p = head->next;
+    while (p != head)
+    {
+        if (p->data == value)
+        {
+            // reassign the pointers of the nodes on either sides of the target node
+            p->prev->next = p->next;
+            p->next->prev = p->prev;
+            
+            // delete the target node and decrement the size of the list
+            delete p;
+            m_size--;
+            return true;
+        }
+        
+        else
+            p = p->next;
+    }
     return false;
 }
 

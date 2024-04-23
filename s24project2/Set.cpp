@@ -170,7 +170,7 @@ void Set::dump() const
     Node* p;
     for (p = head->next; p != head; p = p->next)
     {
-        cout << p->data << endl;
+        cerr << p->data << endl;
     }
 }
 

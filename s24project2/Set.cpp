@@ -33,7 +33,28 @@ int Set::size() const // Simply returns the size of the list
 
 bool Set::insert(const ItemType &value) // inserts a new value in the list in sorted order
 {
-    return false;
+    if(contains(value) == true)
+        return false;
+    
+    Node* p;
+    // loop through the nodes in the list until we find a value just greater than the item we want to insert
+    for(p = head->next; p != head && p->data < value; p = p->next)
+        ;
+    
+    // dynamically allocate the new node and initialize its data members
+    Node* newGuy = new Node;
+    newGuy->data = value;
+    newGuy->next = p;
+    newGuy->prev = p->prev;
+    
+    // adjust the newGuy's predecessor and successor to point to it
+    newGuy->prev->next = newGuy;
+    newGuy->next->prev = newGuy;
+    
+    // Increment the size of the list
+    m_size++;
+    
+    return true;
 }
 
 bool Set::erase(const ItemType &value) // deletes the passed in value assuming it exists within the list
@@ -44,7 +65,7 @@ bool Set::erase(const ItemType &value) // deletes the passed in value assuming i
 bool Set::contains(const ItemType &value) const // simply checks if a value already exists within the list
 {
     Node* p = head->next;
-    while (p != head && empty())
+    while (p != head)
     {
         if (p->data == value)
             return true;
@@ -94,7 +115,12 @@ Set& Set::operator=(const Set& rhs) // Assignment operator
 
 void Set::dump() const
 {
-    
+    // Displays the data in the linked list
+    Node* p;
+    for (p = head->next; p != head; p = p->next)
+    {
+        cout << p->data << endl;
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////

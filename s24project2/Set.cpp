@@ -16,7 +16,7 @@ using namespace std;
 Set::Set()
  :m_size(0)
 {
-    cerr << "Set() default constructor called!" << endl;
+//    cerr << "Set() default constructor called!" << endl;
     head = new Node;
     head->next = head;
     head->prev = head;
@@ -123,13 +123,15 @@ void Set::swap(Set &other) // swaps the contents of two lists
     std::swap(this->m_size, other.m_size);
 }
 
+
+
 ///////////////////////////////////////////////////////////////////////////
 /// Housekeeping Functions
 ///////////////////////////////////////////////////////////////////////////
 
 Set::~Set() // Destructor
 {
-    cerr << "~Set() destructor called!" << endl;
+//    cerr << "~Set() destructor called!" << endl;
     while(head->next != head && head->prev != head)
     {
         Node* p = head->next;
@@ -180,7 +182,24 @@ void Set::dump() const
 
 void unite(const Set& s1, const Set& s2, Set& result)
 {
+    ItemType value; // A temporary variable to store values from the get function
+    for(int i = 0; i < s1.size(); i++)
+    {
+        /// if the address of these sets are the same (aliasing), there's no need to iterate through the loop
+        if(&s1 == &result)
+            break;
+        s1.get(i, value); // get the ith greatest value in the list and store it in value
+        result.insert(value); // insert the value into our result list (our insert function already handles duplicate items in the set)
+    }
     
+    for(int i = 0; i < s2.size(); i++)
+    {
+        /// if the address of these sets are the same (aliasing), there's no need to iterate through the loop
+        if(&s2 == &result)
+            break;
+        s2.get(i, value); // get the ith greatest value in the list and store it in value
+        result.insert(value); // insert the value into our result list (our insert function already handles duplicate items in the set)
+    }
 }
 
 void inOnlyOne(const Set& s1, const Set& s2, Set& result)

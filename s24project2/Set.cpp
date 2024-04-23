@@ -101,7 +101,19 @@ bool Set::contains(const ItemType &value) const // simply checks if a value alre
 
 bool Set::get(int pos, ItemType &value) const // retrieves the value in the list that's exactly pos items less than the one in the list
 {
-    return false;
+    if (empty() == true || pos >= size() || pos < 0)
+        return false;
+
+    // Begin at the end of the list
+    Node* p;
+    int count = 0;
+    for(p = head->prev; p != head && count < pos; count++)
+    {
+        p = p->prev;
+    }
+
+    value = p->data;
+    return true;
 }
 
 void Set::swap(Set &other) // swaps the contents of two lists

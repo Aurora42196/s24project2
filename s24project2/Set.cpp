@@ -6,6 +6,7 @@
 //
 
 #include <iostream>
+#include <algorithm>
 #include "Set.h"
 
 using namespace std;
@@ -118,7 +119,8 @@ bool Set::get(int pos, ItemType &value) const // retrieves the value in the list
 
 void Set::swap(Set &other) // swaps the contents of two lists
 {
-    
+    std::swap(this->head, other.head);
+    std::swap(this->m_size, other.m_size);
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -141,11 +143,24 @@ Set::~Set() // Destructor
 
 Set::Set(const Set& other) // Copy Constructor
 {
+    // dynamically allocate the dummy node of the new list with the size set to 0
+    head = new Node;
+    head->next = head;
+    head->prev = head;
+    m_size = 0;
     
+    Node* p;
+    for(p = other.head->next; p != other.head; p = p->next)
+        this->insert(p->data);
 }
 
 Set& Set::operator=(const Set& rhs) // Assignment operator
 {
+    if(this != &rhs)
+    {
+        Set temp(rhs);
+        swap(temp);
+    }
     return *this;
 }
 

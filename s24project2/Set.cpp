@@ -204,5 +204,40 @@ void unite(const Set& s1, const Set& s2, Set& result)
 
 void inOnlyOne(const Set& s1, const Set& s2, Set& result)
 {
-    
+    // check for aliasing, if the two sets are the same, result remains unchanged
+    if(&s1 == &s2 || &s1 == &result || &s2 == &result)
+        return;
+    else
+    {
+        ItemType value; // A temporary variable to store values from the get function
+        for(int i = 0; i < s1.size(); i++)
+        {
+            /// if the address of these sets are the same (aliasing), there's no need to iterate through the loop
+            if(&s1 == &result)
+                break;
+            
+            // get the ith greatest value in the list and store it in value
+            s1.get(i, value);
+            
+            if(!s2.contains(value)) // if value does not exist in the other set, insert into the result
+                result.insert(value);
+            else
+                continue;
+        }
+        
+        for(int i = 0; i < s2.size(); i++)
+        {
+            /// if the address of these sets are the same (aliasing), there's no need to iterate through the loop
+            if(&s2 == &result)
+                break;
+            
+            // get the ith greatest value in the list and store it in value
+            s2.get(i, value);
+            
+            if(!s1.contains(value)) // if value does not exist in the other set, insert into the result
+                result.insert(value);
+            else
+                continue;
+        }
+    }
 }

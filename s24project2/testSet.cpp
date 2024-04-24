@@ -57,7 +57,7 @@ int main()
     Set test4c;
     unite(test4a, test4b, test4c); // the result set is empty
     assert(test4c.size() == 4);
-    test4c.dump();
+//    test4c.dump();
     cout << endl;
     Set test4d;
     test4d.insert("bat");
@@ -67,7 +67,34 @@ int main()
     test4d.insert("ricky");
     unite(test4b, test4d, test4c);
     assert(test4c.size() == 8);
-    test4c.dump();
+//    test4c.dump();
+    
+    // Test 5: Test the inOnlyOne function
+    Set test5a;
+    test5a.insert("fred");
+    test5a.insert("ethel");
+    test5a.insert("lucy");
+    assert(test5a.size() == 3);
+    Set test5b;
+    test5b.insert("lucy");
+    test5b.insert("ricky");
+    assert(test5b.size() == 2);
+    Set test5c;
+    inOnlyOne(test5a, test5b, test5c); // the result set is empty
+    assert(test5c.size() == 3);
+    assert(test5c.contains("fred") && test5c.contains("ethel") && test5c.contains("ricky"));
+    assert(!test5c.contains("lucy"));
+    test5c.dump();
+    cout << endl;
+    Set test5d;
+    test5d.insert("bat");
+    test5d.insert("lovebirb");
+    test5d.insert("duck");
+    test5d.insert("drybones");
+    test5d.insert("ricky");
+    inOnlyOne(test5b, test5d, test5c);
+    assert(test5c.size() == 8);
+    test5c.dump();
 
 
 
@@ -147,7 +174,7 @@ int main()
 // ItemType - unsigned long
 //  TESTNUM 11 - Different ItemType
 
-//#define TESTNUM 9 // Define the test number you want (Comment out or put value not 1-11 to build program normally)
+//#define TESTNUM 10 // Define the test number you want (Comment out or put value not 1-11 to build program normally)
 //
 //#ifndef TESTNUM
 //#define TESTUM = 0
@@ -442,8 +469,13 @@ int main()
 //    unite(test11a, test11b, test11c);
 //    assert(test11c.size() == 3);
 //    test11c.insert(4);
+//    test11a.dump();
+//    std::cout << std::endl;
+//    test11b.dump();
+//    std::cout << std::endl;
+//    test11c.dump();
 //    unite(test11a, test11b, test11c);
-//    assert(test11c.size() == 3);
+//    assert(test11c.size() == 4);
 //    unite(test11a, test11b, test11a);
 //    assert(test11a.size() == 3);
 //    test11b.insert(10);

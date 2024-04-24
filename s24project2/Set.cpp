@@ -100,7 +100,7 @@ bool Set::contains(const ItemType &value) const // simply checks if a value alre
     return false; // either the value passed in wasn't found or the list is empty
 }
 
-bool Set::get(int pos, ItemType &value) const // retrieves the value in the list that's exactly pos items less than the one in the list
+bool Set::get(int pos, ItemType &value) const // retrieves the value in the list that's exactly pos items less than the ones in the list
 {
     if (empty() == true || pos >= size() || pos < 0)
         return false;
@@ -204,6 +204,7 @@ void unite(const Set& s1, const Set& s2, Set& result)
 
 void inOnlyOne(const Set& s1, const Set& s2, Set& result)
 {
+    /// Solution: To allow for proper aliasing, it would be best to create a temporary set that can handle the algorithm and store that one in the result function using the assignment operator (this will fix my issue for the test case 10 in the discord test cases)
     // check for aliasing, if the two sets are the same, result remains unchanged
     if(&s1 == &s2 || &s1 == &result || &s2 == &result)
         return;

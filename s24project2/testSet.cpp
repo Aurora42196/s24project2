@@ -413,7 +413,7 @@
 // ItemType - unsigned long
 //  TESTNUM 11 - Different ItemType
 
-//#define TESTNUM 9 // Define the test number you want (Comment out or put value not 1-11 to build program normally)
+#define TESTNUM 10 // Define the test number you want (Comment out or put value not 1-11 to build program normally)
 
 #ifndef TESTNUM
 #define TESTUM = 0

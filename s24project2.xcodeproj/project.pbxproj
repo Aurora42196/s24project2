@@ -29,9 +29,9 @@
 		C113D1522BD1DABC0016A8A4 /* testSet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testSet.cpp; sourceTree = "<group>"; };
 		C113D1592BD1E6FF0016A8A4 /* Set.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Set.cpp; sourceTree = "<group>"; };
 		C113D15A2BD1E6FF0016A8A4 /* Set.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Set.h; sourceTree = "<group>"; };
-		C14060B32BD8C99B00BCAFCF /* IntWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IntWrapper.cpp; sourceTree = SOURCE_ROOT; };
-		C14060B42BD8C99B00BCAFCF /* IntWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntWrapper.h; sourceTree = SOURCE_ROOT; };
-		C14060B62BD8CAEA00BCAFCF /* testSetMemoryLeak.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testSetMemoryLeak.cpp; sourceTree = SOURCE_ROOT; };
+		C14060B32BD8C99B00BCAFCF /* IntWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = IntWrapper.cpp; path = s24project2/IntWrapper.cpp; sourceTree = SOURCE_ROOT; };
+		C14060B42BD8C99B00BCAFCF /* IntWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntWrapper.h; path = s24project2/IntWrapper.h; sourceTree = SOURCE_ROOT; };
+		C14060B62BD8CAEA00BCAFCF /* testSetMemoryLeak.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = testSetMemoryLeak.cpp; path = s24project2/testSetMemoryLeak.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

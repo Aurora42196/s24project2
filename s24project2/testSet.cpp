@@ -9,147 +9,386 @@
 ///////////////////////////////////////////////////////////////////////////
 /// Test cases from yours truly
 ///////////////////////////////////////////////////////////////////////////
-#include <iostream>
-#include <cassert>
-#include "Set.h"
+//#include <iostream>
+//#include <cassert>
+//#include "Set.h"
+//
+//using namespace std;
+//
+//int main()
+//{
+//    // Test 1: To see if the default constructor and destructor allocate and deallocate as intended
+//    Set s;
+//    ItemType x = "xxx";
+//    assert(s.empty() == true);
+//    assert(s.size() == 0);
+//    assert(s.contains(x) == false);
+//    
+//    // Test 2: To see if the insert function works and sorts the items in the list and rejects duplicates
+//    Set test2;
+//    test2.insert("bat");
+//    test2.insert("fox");
+//    test2.insert("duck");
+//    test2.insert("elephant");
+//    test2.insert("gorilla");
+//    test2.insert("fox");
+//    
+//    assert(test2.size() == 5);
+////    test2.dump();
+//    
+//    // Test 3: To test the erase function
+//    test2.erase("elephant");
+//    assert(test2.size() == 4);
+//    assert(test2.erase("elephant") == false);
+//    assert(test2.contains("elephant") == false);
+//    test2.erase("gorilla");
+////    test2.dump();
+//    
+//    // Test 4: Test the unite function
+//    Set test4a;
+//    test4a.insert("fred");
+//    test4a.insert("ethel");
+//    test4a.insert("lucy");
+//    assert(test4a.size() == 3);
+//    Set test4b;
+//    test4b.insert("lucy");
+//    test4b.insert("ricky");
+//    assert(test4b.size() == 2);
+//    Set test4c;
+//    unite(test4a, test4b, test4c); // the result set is empty
+//    assert(test4c.size() == 4);
+////    test4c.dump();
+//    cout << endl;
+//    Set test4d;
+//    test4d.insert("bat");
+//    test4d.insert("lovebirb");
+//    test4d.insert("duck");
+//    test4d.insert("drybones");
+//    test4d.insert("ricky");
+//    unite(test4b, test4d, test4c);
+//    assert(test4c.size() == 8);
+////    test4c.dump();
+//    
+//    // Test 5: Test the inOnlyOne function
+//    Set test5a;
+//    test5a.insert("fred");
+//    test5a.insert("ethel");
+//    test5a.insert("lucy");
+//    assert(test5a.size() == 3);
+//    Set test5b;
+//    test5b.insert("lucy");
+//    test5b.insert("ricky");
+//    assert(test5b.size() == 2);
+//    Set test5c;
+//    inOnlyOne(test5a, test5b, test5c); // the result set is empty
+//    assert(test5c.size() == 3);
+//    assert(test5c.contains("fred") && test5c.contains("ethel") && test5c.contains("ricky"));
+//    assert(!test5c.contains("lucy"));
+//    test5c.dump();
+//    cout << endl;
+//    Set test5d;
+//    test5d.insert("bat");
+//    test5d.insert("lovebirb");
+//    test5d.insert("duck");
+//    test5d.insert("drybones");
+//    test5d.insert("ricky");
+//    inOnlyOne(test5b, test5d, test5c);
+//    assert(test5c.size() == 8);
+//    test5c.dump();
+//
+//
+//
+//
+//    
+//    
+//    cout << "Passed all tests!" << endl;
+//}
 
-using namespace std;
+///////////////////////////////////////////////////////////////////////////
+/// Test case given in project spec
+///////////////////////////////////////////////////////////////////////////
 
-int main()
-{
-    // Test 1: To see if the default constructor and destructor allocate and deallocate as intended
-    Set s;
-    ItemType x = "xxx";
-    assert(s.empty() == true);
-    assert(s.size() == 0);
-    assert(s.contains(x) == false);
-    
-    // Test 2: To see if the insert function works and sorts the items in the list and rejects duplicates
-    Set test2;
-    test2.insert("bat");
-    test2.insert("fox");
-    test2.insert("duck");
-    test2.insert("elephant");
-    test2.insert("gorilla");
-    test2.insert("fox");
-    
-    assert(test2.size() == 5);
-//    test2.dump();
-    
-    // Test 3: To test the erase function
-    test2.erase("elephant");
-    assert(test2.size() == 4);
-    assert(test2.erase("elephant") == false);
-    assert(test2.contains("elephant") == false);
-    test2.erase("gorilla");
-//    test2.dump();
-    
-    // Test 4: Test the unite function
-    Set test4a;
-    test4a.insert("fred");
-    test4a.insert("ethel");
-    test4a.insert("lucy");
-    assert(test4a.size() == 3);
-    Set test4b;
-    test4b.insert("lucy");
-    test4b.insert("ricky");
-    assert(test4b.size() == 2);
-    Set test4c;
-    unite(test4a, test4b, test4c); // the result set is empty
-    assert(test4c.size() == 4);
-//    test4c.dump();
-    cout << endl;
-    Set test4d;
-    test4d.insert("bat");
-    test4d.insert("lovebirb");
-    test4d.insert("duck");
-    test4d.insert("drybones");
-    test4d.insert("ricky");
-    unite(test4b, test4d, test4c);
-    assert(test4c.size() == 8);
-//    test4c.dump();
-    
-    // Test 5: Test the inOnlyOne function
-    Set test5a;
-    test5a.insert("fred");
-    test5a.insert("ethel");
-    test5a.insert("lucy");
-    assert(test5a.size() == 3);
-    Set test5b;
-    test5b.insert("lucy");
-    test5b.insert("ricky");
-    assert(test5b.size() == 2);
-    Set test5c;
-    inOnlyOne(test5a, test5b, test5c); // the result set is empty
-    assert(test5c.size() == 3);
-    assert(test5c.contains("fred") && test5c.contains("ethel") && test5c.contains("ricky"));
-    assert(!test5c.contains("lucy"));
-    test5c.dump();
-    cout << endl;
-    Set test5d;
-    test5d.insert("bat");
-    test5d.insert("lovebirb");
-    test5d.insert("duck");
-    test5d.insert("drybones");
-    test5d.insert("ricky");
-    inOnlyOne(test5b, test5d, test5c);
-    assert(test5c.size() == 8);
-    test5c.dump();
+/////////////////////////////////////////////////////////////////////TEST 1
+//#include <iostream>
+//#include <cassert>
+//#include "Set.h"
+//
+//using namespace std;
+//
+//int main()
+//{
+//    Set ss;  // ItemType is std::string
+//    ss.insert("ccc");
+//    ss.insert("aaa");
+//    ss.insert("bbb");
+//    ItemType x = "xxx";
+//    assert(!ss.get(3, x)  &&  x == "xxx");  // x is unchanged
+//    assert(ss.get(1, x)  &&  x == "bbb");   // "bbb" is less than
+//    // exactly 1 item
+//    cout << "Passed all tests!" << endl;
+//
+//}
+//
+/////////////////////////////////////////////////////////////////////TEST 2
+//#include "Set.h"
+//#include <string>
+//#include <iostream>
+//#include <cassert>
+//using namespace std;
+//
+//void test()
+//{
+//    Set ss;
+//    assert(ss.insert("pita"));
+//    assert(ss.insert("roti"));
+//    assert(ss.size() == 2);
+//    assert(ss.contains("roti"));
+//    ItemType x = "laobing";
+//    assert(ss.get(0, x)  &&  x == "roti");
+//    assert(ss.get(1, x)  &&  x == "pita");
+//}
+//
+//int main()
+//{
+//    test();
+//    cout << "Passed all tests" << endl;
+//}
+//
+/////////////////////////////////////////////////////////////////////TEST 3
+//#include "Set.h"
+//#include <iostream>
+//#include <cassert>
+//using namespace std;
+//
+//void test(const Set& uls)
+//{
+//    assert(uls.size() == 2);
+//    assert(uls.contains(20));
+//    ItemType x = 30;
+//    assert(uls.get(0, x)  &&  x == 20);
+//    assert(uls.get(1, x)  &&  x == 10);
+//}
+//
+//int main()
+//{
+//    Set s;
+//    assert(s.insert(10));
+//    assert(s.insert(20));
+//    test(s);
+//    cout << "Passed all tests" << endl;
+//}
+//
+/////////////////////////////////////////////////////////////////////TEST 4
+//#include "Set.h"
+//#include <iostream>
+//#include <string>
+//#include <cassert>
+//using namespace std;
+//
+//int main()
+//{
+//
+/////////////////////////////////////////////////////////////
+///// Test cases for a Set of strings
+///// /////////////////////////////////////////////////////
+//
+//    Set ss;
+//    ss.insert("lavash");
+//    ss.insert("roti");
+//    ss.insert("chapati");
+//    ss.insert("injera");
+//    ss.insert("roti");
+//    ss.insert("matzo");
+//    ss.insert("injera");
+//    ss.insert("RoTi");
+////    assert(ss.size() == 6);  // duplicate "roti" and "injera" were not addedlicate "roti" and "injera" were not added
+//    ss.dump();
+//    ss.erase("roti");
+//    ss.dump();
+//
+//    Set s2;
+//    s2.insert("hello");
+//    s2.insert("goodbye");
+//    assert(s2.size() == 2);
+//    s2.dump();
+//    s2.erase("goodbye");
+//    assert(!s2.contains("goodbye"));
+//    s2.dump();
+//
+//    Set ss1;
+//    ss1.insert("tortilla");
+//    Set ss2;
+//    ss2.insert("matzo");
+//    ss2.insert("pita");
+//    ss1.swap(ss2);
+//    assert(ss1.size() == 2  &&  ss1.contains("matzo")  &&  ss1.contains("pita")  &&
+//           ss2.size() == 1  &&  ss2.contains("tortilla"));
+//
+//    Set s;
+//    assert(s.empty());
+//    ItemType x = "arepa";
+//    assert( !s.get(42, x)  &&  x == "arepa"); // x unchanged by get failure
+//    s.insert("chapati");
+//    assert(s.size() == 1);
+//    assert(s.get(0, x)  &&  x == "chapati");
+//    cout << "Passed all tests" << endl;
+//
+//
+//}
+//
+/////////////////////////////////////////////////////////////////////TEST 5
+//#include "Set.h"
+//#include <iostream>
+//#include <string>
+//#include <cassert>
+//using namespace std;
+//
+//int main()
+//{
+//    Set ss;
+//        ss.insert("lavash");
+//        ss.insert("roti");
+//        ss.insert("chapati");
+//        ss.insert("injera");
+//        ss.insert("roti");
+//        ss.insert("matzo");
+//        ss.insert("injera");
+//        ss.dump();
+//        assert(ss.size() == 5);  // duplicate "roti" and "injera" were not added
+//        string x;
+//        ss.get(0, x);
+//        assert(x == "roti");  // "roti" is less than exactly 0 items in ss
+//        ss.get(4, x);
+//        assert(x == "chapati");  // "chapati" is less than exactly 4 items in ss
+//        ss.get(2, x);
+//        assert(x == "lavash");  // "lavash" is less than exactly 2 items in ss
+//
+//        Set ss3;
+//        ss3.insert("dosa");
+//        assert(!ss.contains(""));
+//        ss3.insert("laobing");
+//        ss3.insert("");
+//        ss3.insert("focaccia");
+//        ss3.dump();
+//        assert(ss3.contains(""));
+//        ss3.erase("dosa");
+//        assert(ss3.size() == 3  &&  ss3.contains("focaccia")  &&  ss3.contains("laobing")  &&
+//               ss3.contains(""));
+//        string v;
+//        assert(ss3.get(0, v)  &&  v == "laobing");
+//        assert(ss3.get(1, v)  &&  v == "focaccia");
+//        assert(ss3.get(2, v)  &&  v == "");
+//        ss3.dump();
+//        cout << "Passed all tests" << endl;
+//}
+//
+/////////////////////////////////////////////////////////////////////TEST 6
+//#include "Set.h"
+//#include <iostream>
+//#include <string>
+//#include <cassert>
+//using namespace std;
+//
+//int main()
+//{
+//    Set s;
+//    assert(s.empty());
+//    ItemType x = 9876543;
+//    assert( !s.get(42, x)  &&  x == 9876543); // x unchanged by get failure
+//    s.insert(123456789);
+//    assert(s.size() == 1);
+//    assert(s.get(0, x)  &&  x == 123456789);
+//    cout << "Passed all tests" << endl;
+//}
+//
+///////////////////////////////////////////////////////////////////////TEST 7
+//#include "Set.h"
+//#include <iostream>
+//#include <string>
+//#include <cassert>
+//using namespace std;
+//
+//void test()
+//{
+//    Set a;   // a can hold at most 1000 distinct items
+//    Set b;      // b can hold at most 5 distinct items
+//    Set c;         // c can hold at most DEFAULT_MAX_ITEMS distinct items
+//    ItemType v[6] = {"roti","lavash","injera","tortilla","engineer","student"};
+//
+////    b.dump();
+//    // No failures inserting 5 distinct items into b
+//    for (int k = 0; k < 5; k++)
+//        assert(b.insert(v[k]));
+//
+////    b.dump();
+//
+//
+//    // When two Sets' contents are swapped, their capacities are swapped
+//    // as well:
+//    a.swap(b);
+//
+//    cerr << "a: " << endl;
+//    a.dump();
+//
+//    cerr << endl << "b: " << endl;
+//    b.dump();
+//}
+//
+//int main()
+//{
+//    test();
+//    cout << "Passed all tests" << endl;
+//}
 
-
-
-
-    
-    
-    cout << "Passed all tests!" << endl;
-}
 
 ///////////////////////////////////////////////////////////////////////////
 /// Test case to see if all the functions are implemented and compile
 ///////////////////////////////////////////////////////////////////////////
 
-//#include "Set.h"
-//#include <type_traits>
-//
-//#define CHECKTYPE(c, f, r, a)  \
-//{  \
-//static_assert(std::is_same<decltype(&c::f), r (c::*)a>::value, \
-//"You did not declare " #c "::" #f " as the Project 2 spec does");  \
-//auto p = static_cast<r (c::*)a>(&c::f);  \
-//(void) p;  \
-//}
-//#define CHECKTYPENONMEMBER(f, t)  \
-//{  \
-//static_assert(std::is_same<decltype(f), t>::value, \
-//"You did not declare " #f " as the Project 2 spec does");  \
-//auto p = static_cast<std::add_pointer<t>::type>(f);  \
-//(void) p;  \
-//}
-//
-//static_assert(std::is_default_constructible<Set>::value,
-//              "Set must be default-constructible.");
-//static_assert(std::is_copy_constructible<Set>::value,
-//              "Set must be copy-constructible.");
-//static_assert(std::is_copy_assignable<Set>::value,
-//              "Set must be assignable.");
-//static_assert(std::is_same<decltype(*(Set*)(0) = Set()), Set&>::value,
-//              "Set::operator= return type should be Set&");
-//
-//void thisFunctionWillNeverBeCalled()
-//{
-//    CHECKTYPE(Set, empty,    bool, () const);
-//    CHECKTYPE(Set, size,     int,  () const);
-//    CHECKTYPE(Set, insert,   bool, (const ItemType&));
-//    CHECKTYPE(Set, erase,    bool, (const ItemType&));
-//    CHECKTYPE(Set, contains, bool, (const ItemType&) const);
-//    CHECKTYPE(Set, get,      bool, (int, ItemType&) const);
-//    CHECKTYPE(Set, swap,     void, (Set&));
-//    CHECKTYPENONMEMBER(unite,     void(const Set&, const Set&, Set&));
-//    CHECKTYPENONMEMBER(inOnlyOne, void(const Set&, const Set&, Set&));
-//}
-//
-//int main()
-//{}
+
+
+#include "Set.h"
+#include <type_traits>
+
+#define CHECKTYPE(c, f, r, a)  \
+{  \
+static_assert(std::is_same<decltype(&c::f), r (c::*)a>::value, \
+"You did not declare " #c "::" #f " as the Project 2 spec does");  \
+auto p = static_cast<r (c::*)a>(&c::f);  \
+(void) p;  \
+}
+#define CHECKTYPENONMEMBER(f, t)  \
+{  \
+static_assert(std::is_same<decltype(f), t>::value, \
+"You did not declare " #f " as the Project 2 spec does");  \
+auto p = static_cast<std::add_pointer<t>::type>(f);  \
+(void) p;  \
+}
+
+static_assert(std::is_default_constructible<Set>::value,
+              "Set must be default-constructible.");
+static_assert(std::is_copy_constructible<Set>::value,
+              "Set must be copy-constructible.");
+static_assert(std::is_copy_assignable<Set>::value,
+              "Set must be assignable.");
+static_assert(std::is_same<decltype(*(Set*)(0) = Set()), Set&>::value,
+              "Set::operator= return type should be Set&");
+
+void thisFunctionWillNeverBeCalled()
+{
+    CHECKTYPE(Set, empty,    bool, () const);
+    CHECKTYPE(Set, size,     int,  () const);
+    CHECKTYPE(Set, insert,   bool, (const ItemType&));
+    CHECKTYPE(Set, erase,    bool, (const ItemType&));
+    CHECKTYPE(Set, contains, bool, (const ItemType&) const);
+    CHECKTYPE(Set, get,      bool, (int, ItemType&) const);
+    CHECKTYPE(Set, swap,     void, (Set&));
+    CHECKTYPENONMEMBER(unite,     void(const Set&, const Set&, Set&));
+    CHECKTYPENONMEMBER(inOnlyOne, void(const Set&, const Set&, Set&));
+}
+
+int main()
+{}
 
 ///////////////////////////////////////////////////////////////////////////
 /// Test cases from Discord

@@ -11,6 +11,8 @@
 #include <string>
 
 using ItemType = std::string;
+//using ItemType = unsigned long;
+
 
 class Set
 {

@@ -10,8 +10,12 @@
 
 #include <string>
 
-using ItemType = std::string;
+//using ItemType = std::string;
 //using ItemType = unsigned long;
+
+///////////// Included to test for memory leaks
+#include "IntWrapper.h"      // TODO: remove this line after testing
+using ItemType = IntWrapper; // TODO: replace this line after testing
 
 
 class Set
